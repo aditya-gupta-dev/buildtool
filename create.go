@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 	"os"
-	"fmt"
 	"strings"
+	"path/filepath"
 )
 
 func CreateProject(projectName string) {
@@ -17,5 +17,26 @@ func CreateProject(projectName string) {
 		projectName = dir[strings.LastIndex(dir, "/")+1:]
 	}
 
-	fmt.Println(projectName)
+	err := os.MkdirAll(projectName, 0755)
+	if err != nil {
+		log.Fatalf("failed to create directory: %s\n", err)
+	}
+
+
 }
+
+func createSubFiles(projectName string) error {
+	chdir, err := os.Getwd()
+	if err != nil { 
+		return err 
+	}
+
+	file, err := os.Create(filepath.Join(chdir, projectName, "main.c"))
+	if err != nil { 
+		return err 
+	}
+	file.Close() 
+
+	return nil 
+}
+
