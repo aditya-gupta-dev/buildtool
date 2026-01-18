@@ -11,4 +11,8 @@ func main() {
 	if args.Create { 
 		CreateProject(args.ProjectName)
 	}
+
+	if args.Compile { 
+		CompileProject(args.ProjectName)	
+	}
 }
