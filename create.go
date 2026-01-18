@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-func CreateProject(projectName string) {
+func CreateProject(projectName string, verbose bool) {
 	if projectName == "" {
 		dir, err := os.Getwd()
 		if err != nil { 

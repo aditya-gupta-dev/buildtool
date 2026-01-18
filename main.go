@@ -9,10 +9,10 @@ func main() {
 	arg.MustParse(&args)
 
 	if args.Create { 
-		CreateProject(args.ProjectName)
+		CreateProject(args.ProjectName, args.Verbose)
 	}
 
 	if args.Compile { 
-		CompileProject(args.ProjectName)	
+		CompileProject(args.ProjectName, args.Verbose)	
 	}
 }
